@@ -40,14 +40,18 @@ const arrowButtonTemplate = `
     <style>
       .arrows__wrap {
         position: absolute;
-        top: 135px;
+        top: 70px;
         left: 50%;
         margin-left: -56px;
       }
       .arrows__btn {
-        background: none;
+        background: #f0eed5;
         border: 2px solid black;
         padding: 5px 20px;
+      }
+      .arrows__btn:hover,
+      .arrows__btn:focus {
+        background: #ff9749;
       }
     </style>
     <button class="arrows__btn arrows__btn-left"><-</button>
@@ -55,14 +59,14 @@ const arrowButtonTemplate = `
 </div>
 `;
 
-const htmlToElements = (html) => {
+const createElementFromHtml = (html) => {
   const template = document.createElement(`template`);
   html = html.trim();
   template.innerHTML = html;
   return template.content.firstChild;
 };
 
-const arrowButtons = htmlToElements(arrowButtonTemplate);
+const arrowButtons = createElementFromHtml(arrowButtonTemplate);
 
 document.querySelector(`.app`).appendChild(arrowButtons);
 
