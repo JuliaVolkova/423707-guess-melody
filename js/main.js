@@ -1,3 +1,6 @@
+import createElementFromHtml from './createElementFromHtml.js';
+
+
 const RIGHT_ARROW = 37;
 const LEFT_ARROW = 39;
 
@@ -56,13 +59,6 @@ const arrowButtonTemplate = `
     <button class="arrows__btn arrows__btn-right">-></button>
 </div>
 `;
-
-const createElementFromHtml = (html) => {
-  const template = document.createElement(`template`);
-  html = html.trim();
-  template.innerHTML = html;
-  return template.content.firstChild;
-};
 
 const arrowButtons = createElementFromHtml(arrowButtonTemplate);
 
