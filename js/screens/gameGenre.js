@@ -87,5 +87,11 @@ export const gameGenreScreen = createElementFromHtml(gameGenreTemplate);
 const gameBackButton = gameGenreScreen.querySelector(`.game__back`);
 gameBackButton.addEventListener(`click`, () => renderScreen(modalConfirmScreen));
 
+const answersCheckboxes = Array.from(gameGenreScreen.querySelectorAll(`[type=checkbox][name=answer]`));
+gameGenreScreen.addEventListener(`click`, () => {
+  gameSubmitButton.disabled = !answersCheckboxes.some((checkbox) => checkbox.checked);
+});
+
 const gameSubmitButton = gameGenreScreen.querySelector(`.game__submit`);
+gameSubmitButton.disabled = !answersCheckboxes.some((checkbox) => checkbox.checked);
 gameSubmitButton.addEventListener(`click`, () => renderScreen(gameArtistScreen));
